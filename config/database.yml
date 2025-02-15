@@ -1,8 +1,8 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  username: your_username  # Use your macOS username
-  password: your_password  # Optional, depending on your setup
+  username: postgres # Use your macOS username
+  password: password  # Optional, depending on your setup
   host: localhost
   port: 5432
 
