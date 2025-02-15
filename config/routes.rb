@@ -1,14 +1,35 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  namespace :api do
+    post '/sessions' => 'sessions#create'
 
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
-  get "up" => "rails/health#show", as: :rails_health_check
+    get "/songs" => "songs#index"
+    post "/songs" => "songs#create"
+    get "/songs/:id" => "songs#show"
+    patch "/songs/:id" => "songs#update"
+    delete "/songs/:id" => "songs#destroy"
 
-  # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
-  # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
-  # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
-
-  # Defines the root path route ("/")
-  # root "posts#index"
+    get "/artists" => "artists#index"
+    post "/artists" => "artists#create"
+    get "/artists/:id" => "artists#show"
+    patch "/artists/:id" => "artists#update"
+    delete "/artists/:id" => "artists#destroy"
+  
+    get "/categories" => "categories#index"
+    post "/categories" => "categories#create"
+    get "/categories/:id" => "categories#show"
+    patch "/categories/:id" => "categories#update"
+    delete "/categories/:id" => "categories#destroy"
+  
+    get "/users" => "users#index"
+    post "/users" => "users#create"
+    get "/users/:id" => "users#show"
+    patch "/users/:id" => "users#update"
+    delete "/users/:id" => "users#destroy"
+  
+    get "/chords" => "chords#index"
+    post "/chords" => "chords#create"
+    get "/chords/:id" => "chords#show"
+    patch "/chords/:id" => "chords#update"
+    delete "/chords/:id" => "chords#destroy"
+  end
 end
